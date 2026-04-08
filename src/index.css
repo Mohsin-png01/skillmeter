@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #7c3aed;
+  --primary-dark: #5b21b6;
+  --primary-light: #8b5cf6;
+  --secondary: #10b981;
+  --accent: #f59e0b;
+  --danger: #ef4444;
+  --light: #f8fafc;
+  --dark: #0f172a;
+  --gray: #64748b;
+  --light-gray: #e2e8f0;
+  --dark-gray: #334155;
+  --code-bg: #1e293b;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --correct: #10b981;
+  --incorrect: #ef4444;
+  
+  --border-radius: 12px;
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  --transition: all 0.3s ease;
+}
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  body {
+    @apply font-sans bg-dark text-light leading-relaxed min-h-screen;
+    font-family: 'Inter', sans-serif;
+  }
+
+  code {
+    @apply font-mono bg-code-bg px-1.5 py-0.5 rounded text-sm;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  pre {
+    @apply bg-code-bg p-4 rounded-lg overflow-x-auto my-4;
+    border-left: 4px solid var(--primary);
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .fade-in {
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+
+  .slide-in {
+    animation: slideIn 0.3s ease forwards;
+  }
+}
+
+@layer utilities {
+  /* Scrollbar Styles */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-gray;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-light;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
